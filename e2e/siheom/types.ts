@@ -35,6 +35,6 @@ export type AssertionStep<AssertionsDict extends AssertionStepDefinitionDict> =
   };
 
 export type Step<
-  ActionsDict extends ActionStepDefinitionDict = {},
-  AssertionsDict extends AssertionStepDefinitionDict = {},
+  ActionsDict extends ActionStepDefinitionDict = Record<string, never>,
+  AssertionsDict extends AssertionStepDefinitionDict = Record<string, never>,
 > = GivenStep | ActionStep<ActionsDict> | AssertionStep<AssertionsDict>;

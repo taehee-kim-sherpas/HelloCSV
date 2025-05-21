@@ -1,5 +1,5 @@
 import { ComponentProps } from 'preact';
-import Importer from '../../importer';
+import Importer from '../../src/importer';
 
 export const meta = {
   title: 'Importer',

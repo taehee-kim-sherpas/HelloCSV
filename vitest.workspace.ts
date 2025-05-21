@@ -5,9 +5,10 @@ export default defineWorkspace([
     extends: './vitest.config.ts',
     test: {
       setupFiles: './setupTests.ts',
-      include: ['src/**/*.spec.{ts,tsx}'],
+      include: ['e2e/**/*.spec.{ts,tsx}'],
       name: 'browser',
       css: true,
+      globals: true,
       browser: {
         enabled: true,
         headless: true,

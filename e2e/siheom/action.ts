@@ -6,7 +6,7 @@ import { expect } from 'vitest';
 
 export const defaultActions = {
   click: async (target: Locator) =>
-    await waitFor(async () => {
+    waitFor(async () => {
       const element = getElement(target, true);
 
       expect(element).toBeInTheDocument();
@@ -14,7 +14,7 @@ export const defaultActions = {
       await userEvent.click(element);
     }),
   dblclick: async (target: Locator) =>
-    await waitFor(async () => {
+    waitFor(async () => {
       const element = getElement(target, true);
 
       expect(element).toBeInTheDocument();

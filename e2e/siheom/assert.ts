@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { waitFor } from '@testing-library/preact';
 import { AssertionStepDefinitionDict, Locator } from './types';
 import { getElement, getElements, locatorLog } from './query';
@@ -86,7 +87,7 @@ export const defaultAssertions = {
   current: async (
     target: Locator,
     expected: 'true' | 'false' | 'page' | 'step' | 'location' | 'date' | 'time',
-    flag: boolean = true
+    flag = true
   ) => {
     await waitFor(async () => {
       const element = getElement(target, true);
@@ -100,7 +101,7 @@ export const defaultAssertions = {
       }
     });
   },
-  count: async (target: Locator, expected: number, flag: boolean = true) => {
+  count: async (target: Locator, expected: number, flag = true) => {
     await waitFor(async () => {
       const elements = getElements(target, true);
 
@@ -111,7 +112,7 @@ export const defaultAssertions = {
       }
     });
   },
-  value: async (target: Locator, expected: string, flag: boolean = true) => {
+  value: async (target: Locator, expected: string, flag = true) => {
     await waitFor(async () => {
       const element = getElement(target, true);
 
@@ -124,11 +125,7 @@ export const defaultAssertions = {
       }
     });
   },
-  errormessage: async (
-    target: Locator,
-    expected: string,
-    flag: boolean = true
-  ) => {
+  errormessage: async (target: Locator, expected: string, flag = true) => {
     await waitFor(async () => {
       const element = getElement(target, true);
 
