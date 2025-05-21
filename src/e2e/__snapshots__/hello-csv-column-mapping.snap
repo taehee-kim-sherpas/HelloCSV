@@ -1,0 +1,41 @@
+group: "Hello CSV" 
+    "Review and confirm each mapping"
+    "Imported column"
+    "Destination column"
+    "employee_id"
+  button: "column mapping for employee_id" [aria-expanded=false]
+    combobox [value=Employee ID *]
+  button: "Clear" 
+  button [aria-expanded=false]
+    "email"
+  button: "column mapping for email" [aria-expanded=false]
+    combobox [value=Email *]
+  button: "Clear" 
+  button [aria-expanded=false]
+    "phone_number"
+  button: "column mapping for phone_number" [aria-expanded=false]
+    combobox [value=Phone Number *]
+  button: "Clear" 
+  button [aria-expanded=false]
+    "address"
+  button: "column mapping for address" [aria-expanded=false]
+    combobox [value=Address *]
+  button: "Clear" 
+  button [aria-expanded=false]
+    "city"
+  button: "column mapping for city" [aria-expanded=false]
+    combobox [value=City]
+  button: "Clear" 
+  button [aria-expanded=false]
+    "state"
+  button: "column mapping for state" [aria-expanded=false]
+    combobox [value=State]
+  button: "Clear" 
+  button [aria-expanded=false]
+    "zip_code"
+  button: "column mapping for zip_code" [aria-expanded=false]
+    combobox [value=Zip Code *]
+  button: "Clear" 
+  button [aria-expanded=false]
+  button: "Back" 
+  button: "Confirm"

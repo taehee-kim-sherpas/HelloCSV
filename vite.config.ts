@@ -42,7 +42,10 @@ export default defineConfig(({ mode }): UserConfig => {
             'preact/debug': 'react',
             preact: 'react',
           }
-        : undefined,
+        : {
+            react: 'preact/compat',
+            'react-dom': 'preact/compat',
+          },
     },
     build: {
       lib: {

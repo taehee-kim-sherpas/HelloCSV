@@ -1,0 +1,18 @@
+group: "Hello CSV" 
+    "Upload a file"
+    "Make sure your file includes all the required columns."
+    "Required columns"
+    "Employee ID"
+    "Email"
+    "Phone Number"
+    "Address"
+    "Zip Code"
+    "Optional columns"
+    "City"
+    "State"
+  paragraph 
+    "Drag and drop your file here"
+    "10 MB"
+  button: "Browse Files" 
+  button: "Or just manually enter your data" 
+  button: "Upload a file" [value=]
