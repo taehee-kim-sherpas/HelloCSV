@@ -13,4 +13,8 @@ export function renderImporter(
   props: ImporterDefinition
 ) {
   render(h(Importer, props), element);
+
+  return () => {
+    // unmount
+  };
 }
