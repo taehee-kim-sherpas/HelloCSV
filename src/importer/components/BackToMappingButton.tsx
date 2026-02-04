@@ -3,10 +3,10 @@ import { Button, ConfirmationModal } from '../../components';
 import { useTranslations } from '../../i18';
 
 interface Props {
-  onBackToMapping: () => void;
+  onBackToUpload: () => void;
 }
 
-export default function BackToMappingButton({ onBackToMapping }: Props) {
+export default function BackToMappingButton({ onBackToUpload }: Props) {
   const { t } = useTranslations();
 
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function BackToMappingButton({ onBackToMapping }: Props) {
       </Button>
       <ConfirmationModal
         variant="danger"
-        onConfirm={onBackToMapping}
+        onConfirm={onBackToUpload}
         open={confirmationModalOpen}
         setOpen={setConfirmationModalOpen}
         title={t('importer.backToMappingConfirmation.title')}

@@ -199,10 +199,6 @@ function ImporterBody({
     dispatch({ type: 'UPLOAD' });
   }
 
-  function onBackToMapping() {
-    dispatch({ type: 'MAPPING' });
-  }
-
   return (
     <ThemeSetter>
       <Root
@@ -260,7 +256,7 @@ function ImporterBody({
                 <div className="mt-5 flex justify-between">
                   <div>
                     {columnMappings != null && (
-                      <BackToMappingButton onBackToMapping={onBackToMapping} />
+                      <BackToMappingButton onBackToUpload={onBackToUpload} />
                     )}
                   </div>
                   <Tooltip
