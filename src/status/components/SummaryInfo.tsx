@@ -1,4 +1,4 @@
-import { EnumLabelDict } from '@/types';
+import { CustomFileLoader, EnumLabelDict } from '@/types';
 import { getTotalRows, downloadAllSheetsAsCsv, getDataSize } from '../utils';
 import { formatFileSize } from '@/uploader/utils';
 import { DocumentTextIcon } from '@heroicons/react/24/outline';
@@ -15,11 +15,13 @@ import { useImporterDefinition } from '@/importer/hooks';
 type Props = {
   completedWithErrors?: boolean;
   enumLabelDict: EnumLabelDict;
+  customFileLoaders: CustomFileLoader[] | undefined;
 };
 
 export default function SummaryInfo({
   completedWithErrors,
   enumLabelDict,
+  customFileLoaders,
 }: Props) {
   const {
     rowFile,
@@ -31,6 +33,13 @@ export default function SummaryInfo({
   const { csvDownloadMode } = useImporterDefinition();
   const { t } = useTranslations();
   const totalRows = getTotalRows(sheetData);
+
+  const customFileExportDict = Object.fromEntries(
+    customFileLoaders?.map((loader) => [
+      loader.mimeType,
+      loader.exportAsFile,
+    ]) ?? []
+  );
 
   return (
     <div className="flex flex-row px-4 pt-3 pb-2">
@@ -56,14 +65,25 @@ export default function SummaryInfo({
                 <Button
                   variant="tertiary"
                   outline
-                  onClick={() =>
-                    downloadAllSheetsAsCsv(
-                      sheetData,
-                      sheetDefinitions,
-                      enumLabelDict,
-                      csvDownloadMode
-                    )
-                  }
+                  onClick={() => {
+                    const fileType = rowFile?.type;
+                    if (fileType && customFileExportDict[fileType]) {
+                      const exportAsFile = customFileExportDict[fileType];
+
+                      return exportAsFile(
+                        sheetData,
+                        sheetDefinitions,
+                        rowFile.name
+                      );
+                    } else {
+                      downloadAllSheetsAsCsv(
+                        sheetData,
+                        sheetDefinitions,
+                        enumLabelDict,
+                        csvDownloadMode
+                      );
+                    }
+                  }}
                 >
                   {t('importStatus.downloadProcessedData')}
                 </Button>

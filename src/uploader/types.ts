@@ -1,3 +1,5 @@
+import { SheetDefinition, SheetState } from '@/types';
+
 export type ImporterRequirementType = {
   sheetId: string;
   columnId: string;
@@ -24,4 +26,9 @@ export interface CustomFileLoader {
         fileName: string;
         csvData: string;
       }>;
+  exportAsFile: (
+    sheetData: SheetState[],
+    sheetDefinitions: SheetDefinition[],
+    fileName: string
+  ) => Promise<void>;
 }

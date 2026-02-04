@@ -1,18 +1,20 @@
 import { Alert, Button } from '@/components';
 import { useTranslations } from '@/i18';
-import { EnumLabelDict } from '@/types';
+import { CustomFileLoader, EnumLabelDict } from '@/types';
 import Summary from './Summary';
 
 interface Props {
   onRetry: () => void;
   onBackToPreview: () => void;
   enumLabelDict: EnumLabelDict;
+  customFileLoaders: CustomFileLoader[] | undefined;
 }
 
 export default function Failed({
   onRetry,
   onBackToPreview,
   enumLabelDict,
+  customFileLoaders,
 }: Props) {
   const { t } = useTranslations();
 
@@ -28,7 +30,11 @@ export default function Failed({
           />
         </div>
         <div className="mt-6">
-          <Summary completedWithErrors={false} enumLabelDict={enumLabelDict} />
+          <Summary
+            completedWithErrors={false}
+            enumLabelDict={enumLabelDict}
+            customFileLoaders={customFileLoaders}
+          />
         </div>
 
         <div className="mt-6 flex justify-between">

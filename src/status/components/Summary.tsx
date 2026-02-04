@@ -1,4 +1,4 @@
-import { EnumLabelDict } from '@/types';
+import { CustomFileLoader, EnumLabelDict } from '@/types';
 import { Card } from '@/components';
 import SummaryInfo from './SummaryInfo';
 import { useTranslations } from '@/i18';
@@ -6,9 +6,14 @@ import { useTranslations } from '@/i18';
 interface Props {
   completedWithErrors?: boolean;
   enumLabelDict: EnumLabelDict;
+  customFileLoaders: CustomFileLoader[] | undefined;
 }
 
-export default function Summary({ completedWithErrors, enumLabelDict }: Props) {
+export default function Summary({
+  completedWithErrors,
+  enumLabelDict,
+  customFileLoaders,
+}: Props) {
   const { t } = useTranslations();
 
   return (
@@ -24,6 +29,7 @@ export default function Summary({ completedWithErrors, enumLabelDict }: Props) {
         <SummaryInfo
           completedWithErrors={completedWithErrors}
           enumLabelDict={enumLabelDict}
+          customFileLoaders={customFileLoaders}
         />
       </div>
     </Card>

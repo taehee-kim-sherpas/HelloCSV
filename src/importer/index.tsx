@@ -283,6 +283,7 @@ function ImporterBody({
             onBackToPreview={onBackToPreview}
             resetState={resetState}
             enumLabelDict={enumLabelDict}
+            customFileLoaders={customFileLoaders}
           />
         )}
       </Root>
