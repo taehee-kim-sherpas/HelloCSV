@@ -80,6 +80,10 @@ function validateSheet(
       const validators = validatorsByColumnId[columnDefinition.id];
 
       validators.forEach((v) => {
+        if (!value && !fieldIsRequired(columnDefinition)) {
+          return;
+        }
+
         const result = v.isValid(value, row);
 
         if (result != null) {
