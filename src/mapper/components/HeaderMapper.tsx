@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import { Button, Error } from '@/components';
 import { useTranslations } from '@/i18';
 import { ColumnMapping } from '@/types';
@@ -44,6 +44,13 @@ export default function HeaderMapper({
     sheetDefinitions,
     currentMapping
   );
+
+  useEffect(() => {
+    if (mapingsValid) {
+      onMappingsSet();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const hoveredExamples = useMemo(() => {
     if (!hoveredCsvHeader) return [];
