@@ -7,7 +7,7 @@ import {
 import { downloadSheetAsCsv, generateCsvContent } from '../utils';
 
 export function getTotalRows(sheetData: SheetState[]) {
-  return sheetData.reduce((total, sheet) => total + sheet.rows.length, 0);
+  return sheetData[0].rows.length;
 }
 
 export function downloadAllSheetsAsCsv(
